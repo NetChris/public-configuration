@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Usage: image-mount.sh <image-filename> <W95|Linux>
+# Usage: raspbian-image-mount.sh <image-filename> <W95|Linux>
 # W95 = Boot Partition / Linux = Root Partition
 # 2019-01-05 - Taken from:
 # https://www.raspberrypi.org/forums/viewtopic.php?p=1192933#p1192933
