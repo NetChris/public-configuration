@@ -9,16 +9,18 @@
 
 IMG="$1"
 PART="$2"
+MNT="/mnt/$PART"
 
 INFO="$(fdisk -lu "${IMG}")"
 START="$(grep "${PART}" <<< "${INFO}" | awk '{print $2}')"
 SIZE="$(grep "${PART}" <<< "${INFO}" | awk '{print $4}')"
 LOOP="$(losetup -f --show -o $((${START} * 512)) --sizelimit $((${SIZE} * 512)) "${IMG}")"
-mount "${LOOP}" /mnt/
+mkdir -p $MNT
+mount "${LOOP}" $MNT
 echo ""
-echo "${IMG} mounted on /mnt/"
+echo "${IMG} mounted on $MNT"
 echo ""
 echo "When done, run:"
-echo "umount /mnt/"
+echo "umount $MNT"
 echo "losetup -d ${LOOP}"
 echo ""
