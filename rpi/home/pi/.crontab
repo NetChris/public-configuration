@@ -1,2 +1,2 @@
 # Set up heartbeat to run every 5 minutes, with IP addresses and FQDN
-*/5 * * * * logger Heartbeat - network identities: $(hostname -I) $(hostname -A)
+*/5 * * * * logger [MachineHeartbeat] - network identities: $(hostname -I) $(hostname -A)
